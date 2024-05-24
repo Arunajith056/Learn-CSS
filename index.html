@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" defer></script>
   </head>
   <body class="bg-stone-900 text-slate-50" id="body_toggle">
     <header
@@ -63,7 +65,10 @@
         </svg>
       </button>
     </header>
-    <aside class="bg-stone-800 fixed w-full hidden p-3 mx-auto border-b border-stone-300" id="menu_list">
+    <aside
+      class="bg-stone-800 fixed w-full hidden p-3 mx-auto border-b border-stone-300"
+      id="menu_list"
+    >
       <div class="p-3 rounded overflow-y-auto h-50">
         <ul class="text:xs font-bold lg:p-2 ml-1">
           <a href="#section_01" onclick="hide_aside()"
@@ -84,88 +89,87 @@
         </ul>
       </div>
     </aside>
-    <main class="w-full md:w-10/12 mx-auto mt-1 p-2"> 
-      <section id="section_01" class="p-3 bg-stone-800 rounded-xl shadow-xl mb-3 border border-stone-300">
+    <main class="w-full md:w-10/12 mx-auto mt-1 p-2">
+      <section
+        id="section_01"
+        class="p-3 bg-stone-800 rounded-xl shadow-xl mb-3 border border-stone-300"
+      >
         <div>
-            <h2 class="text-center font-extrabold border-b border-stone-300 mb-3 pb-2"> #1.what is css</h2>
+          <h2
+            class="text-center font-extrabold border-b border-stone-300 mb-3 pb-2"
+          >
+            #1.what is css
+          </h2>
           <details class="p-1">
             <summary class="font-bold">Introduction to CSS</summary>
             <article class="mt-1 p-2">
+              <p>- CSS stands for <em>'Cascading Style Sheets'</em></p>
               <p>
-                Learn the basics of CSS, including syntax, selectors, and
-                properties. CSS is a style sheet language used for describing
-                the presentation of a document written in HTML or XML.
+                - It is Used to style and arrange our HTML elements like change
+                the color,change the size and more and more we can do.
+              </p>
+              <p></p>
+              <p></p>
+            </article>
+          </details>
+          <details class="p-1">
+            <summary class="font-bold">Why use Css</summary>
+            <article class="mt-1 p-2">
+              <p>- CSS and Html work hand in hand</p>
+              <p>- Without CSS your website would not look appealing at all</p>
+              <p>
+                - The latest Version Comes with Cool features Such as animation
+                and transitions
+              </p>
+            </article>
+          </details>
+          <details class="p-1">
+            <summary class="font-bold">What you Should Know</summary>
+            <article class="mt-1 p-2">
+              <p>- You Should Know basic HTML as a minimum</p>
+              <p>
+                - That,s all,remember in css we are styling and arranging our
+                HTML elements.
               </p>
             </article>
           </details>
         </div>
       </section>
-      <section id="section_02" class="p-3 bg-stone-800 rounded shadow-xl mb-3">
-        <h2 class="text-md md:text-xl font-bold">What is Css ?</h2>
-      </section>
+      <section id="section_02" class="p-3 bg-stone-800 rounded-xl shadow-xl mb-3 border border-stone-300 leading-7">
+        <div>
+            <h2 class="text-center font-extrabold border-b border-stone-300 mb-3 pb-2">#2.How to link HTML to CSS</h2>
+            <details class="p-1">
+                <summary class="font-bold" id="summary">1.External style sheet</summary>
+                <article class="mt-1 p-2">
+                    <p>- Create a file with the extension .css, for example, <code>style.css</code>, in your project folder.</p>
+                    <p>- In the <code>&lt;head&gt;</code> section of your HTML document, add a <code>&lt;link&gt;</code> element to specify the location of your CSS file.</p>
+                    <pre class="bg-black rounded-2xl overflow-x-auto w-full md:w-1/2 text-left px-2 m-0 text-white">
+                        <code class="px-0 m-0 text-left">
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Your Title&lt;/title&gt;
+    &lt;!-- Link to external CSS file --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+    &lt;!-- Explanation: The above line links your HTML document to an external CSS file named &quot;style.css&quot; located in your project folder. --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;&lt;/body&gt;
+    &lt;/html&gt;
+                        </code>
+                    </pre>
+                    <div class="image-container mt-3">
+                        <img class="thumbnail" id="thumbnail" src="/assests/externalcss.png" alt="Thumbnail Image">
+                        <div class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content grid top-5 items-center" src="./assests/externalcss.png" alt="external css">
+                        </div>
+                    </div>
+                </article>
+            </details>
+        </div>
+    </section>
     </main>
-
-    <script>
-      function menu_function() {
-        const menu = document.getElementById("menu_list");
-        menu.classList.toggle("hidden");
-        const body = document.body;
-        body.classList.toggle("overflow-hidden");
-      }
-      function light_toggle() {
-        const remove_list = ["bg-stone-900", "text-slate-50"];
-        const add_list = ["bg-stone-100", "text-black"];
-        const body_trigger = document.getElementById("body_toggle");
-        remove_list.forEach((cls) => body_trigger.classList.remove(cls));
-        add_list.forEach((cls) => body_trigger.classList.add(cls));
-        const ligth = document.getElementById("light");
-        ligth.classList.add("hidden");
-        const dark = document.getElementById("dark");
-        dark.classList.remove("hidden");
-        const aside_list = document.getElementById("menu_list");
-        aside_list.classList.remove("bg-stone-800");
-        aside_list.classList.add("bg-stone-200");
-        const header = document.getElementById("header");
-        header.classList.remove("bg-stone-900");
-        header.classList.add("bg-stone-50");
-        const section = document.querySelectorAll("section");
-        section.forEach((section) => section.classList.remove("bg-stone-800"));
-        section.forEach((section) => section.classList.add("bg-stone-100"));
-      }
-      function dark_toggle() {
-        const remove_list = ["bg-stone-100", "text-black"];
-        const add_list = ["bg-stone-900", "text-slate-50"];
-        const body_trigger = document.getElementById("body_toggle");
-        remove_list.forEach((cls) => body_trigger.classList.remove(cls));
-        add_list.forEach((cls) => body_trigger.classList.add(cls));
-        const ligth = document.getElementById("light");
-        ligth.classList.remove("hidden");
-        const dark = document.getElementById("dark");
-        dark.classList.add("hidden");
-        const aside_list = document.getElementById("menu_list");
-        aside_list.classList.remove("bg-stone-200");
-        aside_list.classList.add("bg-stone-800");
-        const header = document.getElementById("header");
-        header.classList.remove("bg-stone-50");
-        header.classList.add("bg-stone-900");
-        const section = document.querySelectorAll("section");
-        section.forEach((section) => section.classList.remove("bg-stone-100"));
-        section.forEach((section) => section.classList.add("bg-stone-800"));
-      }
-      function hide_aside() {
-        const menu = document.getElementById("menu_list");
-        menu.classList.add("hidden");
-      }
-      // Close the menu when clicking outside of it
-      document.addEventListener("click", function (event) {
-        const menu = document.getElementById("menu");
-        const button = document.querySelector("button");
-        const body = document.body;
-        if (!menu.contains(event.target) && event.target !== button) {
-          hide_aside();
-          body.classList.remove("overflow-hidden");
-        }
-      });
-    </script>
   </body>
 </html>
