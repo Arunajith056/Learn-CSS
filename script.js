@@ -59,7 +59,7 @@ function menu_function() {
     }
   });
 // Get the elements
-const thumbnail = document.getElementById('thumbnail');
+const thumbnail = document.querySelector('.thumbnail');
 const modal = document.querySelector('.modal');
 const modalImg = document.querySelector('.modal-content');
 const closeModal = document.querySelector('.close');
@@ -70,7 +70,7 @@ thumbnail.addEventListener('click', function(event) {
     // Prevent the default behavior of the event
     event.preventDefault();
     // Show the modal
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
     // Set the modal content to the clicked thumbnail's image
     modalImg.src = this.src;
 });
