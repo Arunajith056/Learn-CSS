@@ -66,3 +66,7 @@ body {
     width: 10px;
     height:2px;
 }
+h2{
+    border-top:4px solid rgba(1, 31, 29, 0.392);
+    border-right:2px solid rgba(1, 31, 29, 0.325);
+}

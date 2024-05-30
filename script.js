@@ -59,37 +59,52 @@ document.addEventListener("click", function (event) {
   }
 });
 // copy clipboard
-document.getElementById("copy").addEventListener("click", function () {
-  var code = document.getElementById("code").innerText;
-  navigator.clipboard
-    .writeText(code)
-    .then(function () {
-      document.getElementById("copied").classList.remove("hidden");
-      document.getElementById("svg").classList.add("hidden");
-      setTimeout(function () {
-        document.getElementById("copied").classList.add("hidden");
-        document.getElementById("svg").classList.remove("hidden");
-      }, 3000);
-    })
-    .catch(function (err) {
-      alert(err);
-    });
+const copyButtons = document.querySelectorAll(".copy");
+
+copyButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    // Find the closest code block relative to the clicked button
+    const codeBlock = button.closest('.code-container').querySelector(".code").innerText;
+    
+    navigator.clipboard
+      .writeText(codeBlock)
+      .then(function () {
+        const copiedMessage = button.closest('.code-container').querySelector(".copied");
+        const svgIcon = button.closest('.code-container').querySelector(".svg");
+
+        copiedMessage.classList.remove("hidden");
+        svgIcon.classList.add("hidden");
+
+        setTimeout(function () {
+          copiedMessage.classList.add("hidden");
+          svgIcon.classList.remove("hidden");
+        }, 3000);
+      })
+      .catch(function (err) {
+        alert(err);
+      });
+  });
 });
+
+// tumbnails started
 // Get the elements
-const thumbnail = document.querySelector(".thumbnail");
+const thumbnails = document.querySelectorAll(".thumbnail");
 const modal = document.querySelector(".modal");
-const modalImg = document.querySelector(".modal-content");
+const modalImg = document.getElementById("modal-img");
 const closeModal = document.querySelector(".close");
 const summary = document.getElementById("summary");
 
 // When the thumbnail is clicked, show the modal with the fullsize image
-thumbnail.addEventListener("click", function (event) {
-  // Prevent the default behavior of the event
-  event.preventDefault();
-  // Show the modal
-  modal.forEach((style) => (style.display = "flex"));
-  // Set the modal content to the clicked thumbnail's image
-  modalImg.srs.add(this.src);
+thumbnails.forEach((thumbnail) => {
+  thumbnail.addEventListener("click", function (event) {
+    // Prevent the default behavior of the event
+    event.preventDefault();
+
+    // Show the modal
+    modal.style.display = "flex";
+    // Set the modal content to the clicked thumbnail's image
+    modalImg.src = this.src;
+  });
 });
 
 // When the close button is clicked, close the modal
